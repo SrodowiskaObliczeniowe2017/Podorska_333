@@ -3,18 +3,41 @@
 
 int main(void){
 
-int input = 0, output, count = 0, i;
+int input = 0, count = 0, i, temp = 3, quantity = 0;
+
+int basic = 3;
 printf("podaj cene\n");
 scanf("%d", &input);
-for(i = 0; i < 1000; i++){
-	if(input > pow(3,i)){
-		input = input - 3^i;
-		count++;
-	}
-	else if(input == 1){
-        output = 1;
-	}
+
+while(1){
+       temp = pow(basic, count);
+printf("temp %d \n ", temp);
+       if( temp<input)
+        {
+            count++;
+        }
+        else{
+          break;
+        }
+printf("count %d \n", count);
 }
-output = count + 1;
-printf("najmniejsza liczba monet: %d\n", output);
+count = count-1;
+
+
+while(count != 0){
+    while(input/pow(basic, count) > 0){
+            printf("count %d \n", count);
+            if(input/pow(basic,count)>0){
+                input = input - pow(basic, count);
+                printf("input %d \n", input);
+                quantity++;
+                printf("quantity %d \n", quantity);
+            }
+            else{
+                count--;
+            }
+    }
+}
+
+printf("najmniejsza liczba monet: %d\n", quantity);
 }
